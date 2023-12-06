@@ -1,2 +1,4 @@
 /.idea/
 /pptx-to-txt/pptx-to-txt.iml
+*.pptx
+*.txt
