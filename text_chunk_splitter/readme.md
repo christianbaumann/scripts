@@ -1,7 +1,3 @@
-I see, let's fix the formatting issue with the code blocks in the README. Here's the revised version:
-
----
-
 # Text Chunk Splitter
 
 ## Overview
