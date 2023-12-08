@@ -3,10 +3,12 @@ file_path = 'input.txt'
 # Function to split text into chunks without cutting words
 def split_text_into_chunks(text, chunk_size)
   chunks = []
-  while text.length > 0
-    break_point = text.rindex(' ', chunk_size) || chunk_size
-    chunks << text[0...break_point].strip
-    text = text[break_point..-1].strip
+  until text.empty?
+    break_point = [chunk_size, text.length].min
+    break_point = text.rindex(' ', break_point) || break_point
+    chunk = text[0...break_point].strip
+    chunks << chunk unless chunk.empty?
+    text = text[break_point..].strip
   end
   chunks
 end
