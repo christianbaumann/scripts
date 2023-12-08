@@ -1,4 +1,5 @@
 file_path = 'input.txt'
+chunk_size = 1500
 
 # Function to split text into chunks without cutting words
 def split_text_into_chunks(text, chunk_size)
@@ -16,8 +17,8 @@ end
 # Read the file content
 text = File.read(file_path)
 
-# Split the text into 1500 character chunks
-chunks = split_text_into_chunks(text, 1500)
+# Split the text into chunks
+chunks = split_text_into_chunks(text, chunk_size)
 
 # Output the chunks (or process them as needed)
 chunks.each_with_index do |chunk, index|
