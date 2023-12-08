@@ -1,3 +1,5 @@
+require 'fileutils'
+
 file_path = 'input.txt'
 chunk_size = 1500
 
@@ -14,15 +16,23 @@ def split_text_into_chunks(text, chunk_size)
   chunks
 end
 
+# Construct the output file name
+base_name = File.basename(file_path, ".*")
+ext_name = File.extname(file_path)
+output_file = "#{base_name}_splitted_#{chunk_size}#{ext_name}"
+
 # Read the file content
 text = File.read(file_path)
 
 # Split the text into chunks
 chunks = split_text_into_chunks(text, chunk_size)
 
-# Output the chunks (or process them as needed)
-chunks.each_with_index do |chunk, index|
-  puts "Chunk #{index+1}:"
-  puts chunk
-  puts "---"
+# Write chunks to the new file
+File.open(output_file, 'w') do |file|
+  chunks.each do |chunk|
+    file.puts(chunk)
+    file.puts("---")  # Optional: Adds a separator between chunks
+  end
 end
+
+puts "Chunks written to #{output_file}"
